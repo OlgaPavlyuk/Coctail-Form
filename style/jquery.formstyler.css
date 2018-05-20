@@ -1,0 +1,272 @@
+input, select{
+	outline: none;
+	border: none;
+	margin: 0;
+}
+
+.jq-number {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0 0 0 0;
+}
+.jq-number__field {
+	border-radius: 4px;
+	/* width: 4.76em; */
+	width: 100%;
+}
+.jq-number__field:hover {
+	box-shadow: 0 0 8px #a6acb2;
+}
+.jq-number__field input {
+	box-sizing: border-box;
+	width: 100%;
+	border-radius: 4px;
+	background-color: #fff;
+	border: 1px solid #a6acb2;
+	box-shadow: inset 0 0 5px #8c969f;
+	padding: 0.35rem;
+	padding-left: 0.65em;
+	color: #6b6b6b;
+	font-size: 0.85em;
+	text-align: left; /* для Opera Presto */
+	-moz-appearance: textfield;
+	margin: 0;
+}
+.jq-number__field input::-webkit-inner-spin-button,
+.jq-number__field input::-webkit-outer-spin-button {
+	margin: 0;
+	-webkit-appearance: none;
+}
+.jq-number__spin {
+	position: absolute;
+	right: 0;
+	width: 1.6em;
+	height: 50%;
+
+	border: 1px solid #4a88be; 
+	  
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
+	cursor: pointer;
+}
+.jq-number__spin.plus {
+	top: 0;
+	border-radius: 0 4px 0 0;
+	background: #7db7e6;
+	background: -moz-linear-gradient(bottom, #82bbe8, #7db7e6);
+	background: -webkit-linear-gradient(bottom, #82bbe8, #7db7e6);
+	background: linear-gradient(180deg, #82bbe8, #7db7e6);
+}
+.jq-number__spin.minus {
+	bottom: 0;
+	border-radius: 0 0 4px 0;
+	border-top: none;
+	background: #7db7e6;
+	background: -moz-linear-gradient(bottom, #77b0e2, #5d97d5);
+	background: -webkit-linear-gradient(bottom, #77b0e2, #5d97d5);
+	background: linear-gradient(180deg, #77b0e2, #5d97d5);
+}
+.jq-number__spin:hover {
+	background: #609ad7;
+}
+.jq-number__spin:active {
+	background: #4882ca;
+}
+.jq-number__spin:after {
+	content: '';
+	position: absolute;
+	top: -1px;
+	bottom: -1px;
+	right: 0;
+	left: 0;
+	margin: auto;
+	width: 9px;
+	height: 6px;
+	background: url("../images/sprite.png") no-repeat;
+}
+.jq-number__spin.minus:after {
+	background-position:  -21px -4px;
+}
+.jq-number__spin.plus:after {
+	background-position:  -38px -4px;
+}
+.jq-number.focused .jq-number__field {
+	box-shadow: inset 0 0 5px #8c969f, 0 0 8px #a6acb2;
+}
+
+
+.jq-selectbox {
+	vertical-align: middle;
+	cursor: pointer;
+}
+.jq-selectbox__select {
+  	background-color: #fff;
+	border: 1px solid #a6acb2;
+	border-radius: 4px;
+	box-shadow: inset 0 0 5px #8c969f;
+	padding: 0.35rem;
+	padding-left: 0.6em;
+	font-size: 0.85em;
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
+}
+.jq-selectbox__select:hover,
+.jq-selectbox__select:active,
+.jq-selectbox.focused .jq-selectbox__select {
+	box-shadow: inset 0 0 5px #8c969f, 0 0 8px #a6acb2;
+}
+.jq-selectbox.focused .jq-selectbox__select {
+	border: 1px solid #8c969f; 
+}
+.jq-selectbox__select-text {
+	display: block;
+	width: 100%;
+	white-space: nowrap;
+	color: #6b6b6b;
+}
+.jq-selectbox .placeholder {
+	color: #a6acb2;
+}
+.jq-selectbox__trigger {
+	position: absolute;
+	top: -1px;
+	bottom: -1px;
+	right: -1px;
+	width: 2.23em;
+
+	border-radius: 0 4px 4px 0;
+	border: 1px solid;
+	border-color: #579cd1 #4c8bc1 #2b5994 #579cd1;
+	background: #82bbe8;
+	background: -moz-linear-gradient(top, #82bbe8, #4882ca);
+	background: -webkit-linear-gradient(top, #82bbe8, #4882ca);
+	background: linear-gradient(180deg, #82bbe8, #4882ca);
+}
+.labeled .jq-selectbox__trigger {
+	width: 1.9em;
+}
+.jq-selectbox__trigger-arrow {
+	position: absolute;
+	display: block;
+	top: 0;
+	bottom: 0;	
+	left: 0; right: 0;
+	width: 10px;
+	height: 7px;
+	margin: auto;
+	background: url("../images/sprite.png") no-repeat -4px -3px;
+}
+.jq-selectbox__dropdown {
+	box-sizing: border-box;
+	min-width: 100%;
+	margin: 0.5em 0;
+	background-color: #fff;
+	border: 1px solid #a6acb2;
+	border-radius: 4px;
+	box-shadow: inset 0 0 5px #8c969f, 0 0 8px #d9dbde;
+	padding: 0.4em;
+	position: relative;
+}
+.jq-selectbox__dropdown:before {
+	content: '';
+	position: absolute;
+	right: 15px;
+	top: -5px;
+	
+	width: 10px;
+	height: 10px;
+	-ms-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	background-color: #fff;
+	border-top: 1px solid #a6acb2;
+	border-left: 1px solid #a6acb2;
+	box-shadow: inset -1px -1px 3px #fff,
+				inset 1px 1px 5px #cbcbcb;	
+}
+.jq-selectbox ul {
+	margin: 0;
+	padding: 0;
+}
+.jq-selectbox li {
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
+	white-space: nowrap;	
+	background: #fff;
+	font-size: 0.9em;
+	padding: 0.35em;
+	padding-left: 2em;
+	text-overflow: ellipsis;
+	border-radius: 4px;
+	position: relative;
+	z-index: 100;
+}
+.jq-selectbox li:before {
+	content: "";
+	position: absolute;
+	top: 0.7em;
+	left: 0.6em;
+	width: 13px;
+	height: 10px;
+	background: url("../images/sprite.png") no-repeat;
+	background-position: -4px -20px;
+}
+.jq-selectbox li.selected {
+	background: linear-gradient(0deg, #6f646a 50%, transparent 50%),
+				linear-gradient(90deg, #6f646a 50%, transparent 50%);
+	background-size: 3px 3px;
+	background-color: #817879; 
+	color: #fff;
+}
+.jq-selectbox li.selected:before{
+	background-position: -22px -20px;
+}
+.jq-selectbox li:hover{
+  	background: linear-gradient(0deg, #e2dedb 50%, transparent 50%),
+				linear-gradient(90deg, #e2dedb 50%, transparent 50%);
+	background-size: 3px 3px;
+	background-color: #f5f5f5; 
+}
+.jq-selectbox li.selected:hover {
+	color: inherit;
+}
+.jq-selectbox li.disabled:hover {
+	background: none;
+}
+.jq-selectbox li.optgroup {
+	color: #827a78;
+	border-radius: 4px;
+	display: block;
+	font-size: 1em;
+	padding: 0.35em;
+	padding-left: 2em;
+	margin: 1px 0;
+	font-weight: bold;
+	background: linear-gradient(0deg, #e2dedb 50%, transparent 50%),
+				linear-gradient(90deg, #e2dedb 50%, transparent 50%);
+	background-size: 3px 3px;
+	background-color: #efebe8;
+}
+.jq-selectbox li.optgroup:before{
+	display: none;
+}
+.jq-selectbox li.optgroup:hover {
+	cursor: default;
+}
+.jq-selectbox li.option {
+	padding-left: 25px;
+}
+@media screen and (max-width: 480px){
+.jq-selectbox__select,
+.jq-number__field input {
+	padding: 0.8rem;
+}
+}

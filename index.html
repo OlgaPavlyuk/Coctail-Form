@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+ <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Форма для коктейля</title>
+	
+	<link rel="stylesheet" href="style/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>	
+		
+		<link href="style/jquery.formstyler.css" rel="stylesheet" />
+		<script src="js/jquery.formstyler.min.js"></script>
+</head>
+<body>
+<!-- <a href="http://htmlbook.ru/practical/poshagovaya-forma" target="_blank" tabindex="-1">Задание отсюда</a> -->
+<form action="" method="post" enctype="multipart/form-data" name="coctail">
+	<nav class="menu">
+		<ul class="nav">
+			<li class="nav-item active" id="description"><span class="icon">Описание</span></li>
+			<li class="nav-item" id="ingredients"><span class="icon">Ингредиенты</span></li>
+			<li class="nav-item" id="options" ><span class="icon">Параметры</span></li>
+			<li class="nav-item" id="goblets"><span class="icon">Бокалы</span></li>
+		</ul>
+	</nav>
+	<fieldset class="fieldset description corner" data-fieldName="description">
+		<h1 class="legend">Описание</h1>
+		<figure class="img_upload">			
+			<img src="images/goblet.png" alt="Пример фото коктейля" id="image" />
+			<div class="button colored btn-upload" tabindex=1>
+				<span class="button_label">Загрузить</span>
+				<input type="file" name="select_photo" id="imgInput" accept="image/*" tabindex='-1'/>
+			</div>
+		</figure>
+		<div class="wrapper">
+			<label class="corner-small"><input type="text" name="coctail-name" class="element" required placeholder="Название коктейля" maxlength="40"/></label>
+			<label class="corner-small"><input type="text" name="alternative-coctail-name" class="element" placeholder="Альтернативные названия через запятую" maxlength="100"/></label>
+			<label class="corner-small"><textarea name="coctail-description" class="element" placeholder="Краткое описание" maxlength="500"></textarea></label>
+		</div>
+		<label class="corner-small"><textarea name="coctail-instruction" class="element" placeholder="Инструкция для приготовления" maxlength="500"></textarea></label>
+		<button type="button" class="button next">Ингредиенты</button>
+	</fieldset>
+	
+	<fieldset class="fieldset ingredients corner" data-fieldName="ingredients">
+		<h1 class="legend">Ингредиенты</h1>
+		<div class="strawberry hint" data-hint="Украшение?"></div>
+		<ul class="ingredients-list">
+			<li class="ingredients-item">
+				<select class="ingredient-name" name="ingredient-1"> 
+					<option label="Название ингредиента"></option> 
+				</select>
+				<input type="number" class="ingredient-count" name="count-1"  min=1 max=1000 step=1 value="1"/>
+				<select class="ingredient-volume" name="volume-1"></select>
+				<label class="check-label" tabindex="1"><input type="checkbox" name="decor-1"/><span class="check-icon"></span></label>
+			 </li>
+		</ul>	
+		<button type="button" class="button prev">Описание</button>
+		<button type="button" class="button next">Параметры</button>		
+	</fieldset> 
+	
+	<fieldset class="fieldset options corner" data-fieldName="options">
+		<h1 class="legend options-icon">Параметры приготовления</h1>		
+		<div class="wrapper">
+		<label class="params_label quater">Порций
+			<input type="number" class="portion" min=1 max=1000 step=1 name="portions" value="1"/>
+		</label>
+		<label class="params_label quater">Время
+			<select class="labeled" name="time" >
+				<option value="5" selected>5 мин.</option>
+				<option value="10">10 мин.</option>
+				<option value="15">15 мин.</option>
+			</select>
+		</label>
+		<label class="params_label third">Сложность
+			<select class="labeled" name="complexity">
+				<option label="Выберите из списка"></option>
+				<option value="easy">Простой</option>
+				<option value="middle">Средний</option>
+				<option value="hard">Сложный</option>
+			</select>
+		</label>
+		<label class="params_label third">Метод
+			<select class="labeled" name="method">
+				<option label="Выберите из списка"></option>
+				<option value="shaker">в шейкере</option>
+				<option value="blender">в блендере</option>
+				<option value="glass">в бокале</option>	
+			</select>
+		</label>
+		</div>
+		
+		<h1 class="legend type-icon">Тип коктейля</h1>
+		<div class="wrapper">
+		<label class="params_label third">По крепости
+			<select class="labeled" name="strength">
+				<option label="Выберите из списка"></option>
+				<option value="no">Безалкогольные</option>
+				<option value="low">Слабоакогольные</option>
+				<option value="middle">Полукрепкие (16-22%)</option>
+				<option value="strong">Крепкие (более 22%)</option>			
+		</select>
+		</label>
+		<label class="params_label third">На основе
+			<select class="labeled" name="base">
+				<option label="Выберите из списка"></option>
+				<option value="absent"	>Абсент</option>
+				<option value="vodka"	>Водка</option>
+				<option value="gin"		>Джин</option>
+				<option value="whisky"	>Виски</option>
+				<option value="brandy"	>Бренди</option>
+				<option value="liquor"	>Ликер</option>
+				<option value="calvados">Кальвадос</option>
+				<option value="tackle"	>Текила</option>
+				<option value="rum"		>Ром</option>
+				<option value="beer"	>Пиво</option>
+				<option value="wine"	>Вино</option>
+				<option value="cognac"	>Коньяк</option>
+				<option value="tea"		>Чай</option>
+				<option value="coffee"	>Кофе</option>
+				<option value="juice"	>Сок</option>
+		</select>
+		</label>
+		<label class="params_label third">По типу
+			<select class=" labeled" name="coctail-type">
+				<option label="Выберите из списка"></option>
+				<option value="aperitif">Аперитивы</option>
+				<option value="digestive">Диджестивы</option>
+				<option value="hot"		>Горячие</option>
+				<option value="milk"	>Молочные</option>
+				<option value="dessert"	>Десертные</option>
+				<option value="layered"	>Слоистые</option>
+				<option value="daisies"	>Дейзи</option>
+				<option value="juleps"	>Джулепы</option>
+				<option value="cardinals">Кардиналы</option>
+				<option value="coblers"	>Коблеры</option>
+				<option value="collins"	>Коллинсы</option>
+				<option value="fixes"	>Фиксы</option>
+				<option value="sours"	>Сауэры</option>
+		</select>
+		</label>
+		</div>
+		
+		<h1 class="legend tags-icon">Теги</h1>
+		<div class="wrapper clearfix">
+			<label class="check-label"><input type="checkbox" name="tags" value="bracing" /><span class="check-icon"></span>Бодрящие</label>
+			<label class="check-label"><input type="checkbox" name="tags" value="salt" /><span class="check-icon"></span>Соленые</label>
+			<label class="check-label"><input type="checkbox" name="tags" value="unusual" /><span class="check-icon"></span>Необыч. по употреб.</label>
+			<label class="check-label"><input type="checkbox" name="tags" value="bitter" /><span class="check-icon"></span>Горькие</label>
+			<label class="check-label"><input type="checkbox" name="tags" value="grass" /><span class="check-icon"></span>Травяные</label>
+			<label class="check-label"><input type="checkbox" name="tags" value="company" /><span class="check-icon"></span>Для компании</label>
+			<label class="check-label"><input type="checkbox" name="tags" value="sour" /><span class="check-icon"></span>Кислые</label>
+			<label class="check-label"><input type="checkbox" name="tags" value="tropic" /><span class="check-icon"></span>Тропические</label>
+			<label class="check-label"><input type="checkbox" name="tags" value="forFriends" /><span class="check-icon"></span>Для друзей</label>
+			<label class="check-label"><input type="checkbox" name="tags" value="sweet" /><span class="check-icon"></span>Сладкие</label>			
+			<label class="check-label"><input type="checkbox" name="tags" value="fruit" /><span class="check-icon"></span>Фруктовые</label>			
+			<label class="check-label"><input type="checkbox" name="tags" value="firy" /><span class="check-icon"></span>Огненные</label>				
+		</div>
+		
+		<button type="button" class="button prev">Ингредиенты</button>
+		<button type="button" class="button next">Бокалы</button>	
+	</fieldset>
+	
+	<fieldset class="fieldset goblets corner" data-fieldName="goblets">
+		<h1 class="legend">Бокалы</h1>
+		<div class="wrapper">
+		<figure class="glass hint" tabindex="0">	
+			<label>
+				<img src="images/goblets/1.png" alt="Бокал для белого вина">
+				<input type="radio" name="glass" value="white_wine" /><span class="check_field colored"></span>
+			</label>
+		</figure>
+		<figure class="glass hint" tabindex="0">
+			<label>
+				<img src="images/goblets/2.png" alt="Бокал для красного вина">
+				<input type="radio" name="glass" value="red_wine" tabindex="0" /><span class="check_field colored"></span>
+			</label>
+		</figure>
+		<figure class="glass hint" tabindex="0">
+			<label class="">
+				<img src="images/goblets/3.png" alt="Бокал для слоистых коктейлей">
+				<input type="radio" name="glass" value="layers" /><span class="check_field colored"></span>
+			</label>
+		</figure>
+		<figure class="glass hint" tabindex="0">
+			<label class="">
+				<img src="images/goblets/4.png" alt="Бокал для коктейлей сауэр">
+				<input type="radio" name="glass" value="sour" /><span class="check_field colored"></span>
+			</label>
+		</figure>
+		<figure class="glass hint" tabindex="0">
+			<label class="">
+				<img src="images/goblets/5.png" alt="Бокал для тропических коктейлей">
+				<input type="radio" name="glass" value="tropic" /><span class="check_field colored"></span>
+			</label>
+		</figure>
+		<figure class="glass hint" tabindex="0">
+			<label class="">
+				<img src="images/goblets/6.png" alt="Бокал для виски">
+				<input type="radio" name="glass" value="whisky" /><span class="check_field colored"></span>
+			</label>
+		</figure>
+		<figure class="glass hint" tabindex="0">
+			<label class="">
+				<img src="images/goblets/7.png" alt="Бокал для горячих коктейлей">
+				<input type="radio" name="glass" value="irish-coffee" /><span class="check_field colored"></span>
+			</label>
+		</figure>
+		<figure class="glass hint" tabindex="0">
+			<label class="">
+				<img src="images/goblets/8.png" alt="Бокал для мартини">
+				<input type="radio" name="glass" value="martini" /><span class="check_field colored"></span>
+			</label>
+		</figure>
+		<figure class="glass hint" tabindex="0">
+			<label class="">
+				<img src="images/goblets/9.png" alt="Бокал для лонгдринков">
+				<input type="radio" name="glass" value="longdrink" /><span class="check_field colored"></span>
+			</label>
+		</figure>
+		<figure class="glass hint" tabindex="0">
+			<label class="">
+				<img src="images/goblets/10.png" alt="Бокал для коньяка">
+				<input type="radio" name="glass" value="cognac" /><span class="check_field colored"></span>
+			</label>
+		</figure>
+		<figure class="glass hint" tabindex="0">
+			<label class="">
+				<img src="images/goblets/11.png" alt="Бокал для Маргариты">
+				<input type="radio" name="glass" value="margarita" /><span class="check_field colored"></span>
+			</label>
+		</figure>
+		<figure class="glass hint" tabindex="0">
+			<label class="">
+				<img src="images/goblets/12.png" alt="Бокал для пива">
+				<input type="radio" name="glass" value="beer" /><span class="check_field colored"></span>
+			</label>
+		</figure>
+		<figure class="glass hint" tabindex="0">
+			<label class="">
+				<img src="images/goblets/13.png" alt="Бокал для коньяка Арманьяк">
+				<input type="radio" name="glass" value="armaniac" /><span class="check_field colored"></span>
+			</label>
+		</figure>
+		<figure class="glass hint" tabindex="0">
+			<label class="">
+				<img src="images/goblets/14.png" alt="Бокал для напитков со льдом">
+				<input type="radio" name="glass" value="oldFashened" /><span class="check_field colored"></span>
+			</label>
+		</figure>
+		<figure class="glass hint" tabindex="0">
+			<label class="">
+				<img src="images/goblets/15.png" alt="Стопка">
+				<input type="radio" name="glass" value="shot" /><span class="check_field colored"></span>
+			</label>
+		</figure>
+		<figure class="glass hint" tabindex="0">
+			<label class="">
+				<img src="images/goblets/16.png" alt="Бокал для крепких алкогольных напитков">
+				<input type="radio" name="glass" value="tumbler" /><span class="check_field colored"></span>
+			</label>
+		</figure>
+		<figure class="glass hint" tabindex="0">
+			<label class="">
+				<img src="images/goblets/17.png" alt="Бокал для шампанского и игристых вин">
+				<input type="radio" name="glass" value="champagne" /><span class="check_field colored"></span>
+			</label>
+		</figure>
+		<figure class="glass hint" tabindex="0">
+			<label class="">
+				<img src="images/goblets/18.png" alt="Бокал для прохладительных напитков">
+				<input type="radio" name="glass" value="highball" /><span class="check_field colored"></span>
+			</label>
+		</figure>
+		<figure class="glass"></figure>
+		<figure class="glass"></figure>
+		</div>
+		<button type="button" class="button prev" tabindex="0">Параметры</button>
+		<button type="submit" class="button colored" tabindex="0">Отправить</button>	
+	</fieldset>
+	
+<script src="js/scripts.js"></script> 
+</form>
+</body>
+</html>
